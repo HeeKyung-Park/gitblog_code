@@ -1,3 +1,5 @@
+set.seed(123)
+
 #### 일표본 T-test (One sample T-test) ####
 
 ### 예제 데이터 생성 (결과 비교를 위해 2개의 표본 생성)
@@ -12,7 +14,6 @@ summary(starbucks2)
 ### T-test
 t.test(x=starbucks1, mu=340, alternative="two.sided") # H0 accept
 t.test(x=starbucks2, mu=340, alternative="two.sided") # H0 reject
-
 
 
 #### 독립 표본 T-test (Two sample T-test) ####
@@ -32,7 +33,6 @@ t.test(x=ediya1, y=starbucks, mu=14, alternative="two.sided")
 t.test(x=ediya2, y=starbucks, mu=14, alternative="two.sided")
 
 
-
 #### 대응 표본 T-test (Paired sample T-test) ####
 
 ### 예제 데이터 생성 
@@ -44,4 +44,5 @@ diff <- runif(n=400, min=-2, max=5)
 after <- before + diff 
 
 ### T-test
-t.test(x=after, y=before, mu=0, alternative="greater", paired=TRUE)
+t.test(x=after, y=before, mu=0, alternative="greater", paired=TRUE) # 대응표본
+t.test(x=diff, mu=0, alternative="greater") # 일표본
